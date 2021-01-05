@@ -1,0 +1,3 @@
+
+
+export const exampleFolder = "Example";
