@@ -1,0 +1,11 @@
+@use "../global/styles/_global";
+
+$modal-border: rgba(0,0,0,.2);
+$modal-padding: 0px 20px;
+
+.trial {
+  width: 40%;
+  height: 400px;
+  border : 1px solid $modal-border;
+  border-radius: 15px;
+}

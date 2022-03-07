@@ -1,6 +1,4 @@
 
-$modal-border: rgba(0,0,0,.2);
-
 @mixin flexWithArgs($justify-content, $align-items) {
   display: flex;
   justify-content: $justify-content;

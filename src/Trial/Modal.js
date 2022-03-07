@@ -1,4 +1,4 @@
-import * as styles from "./styles.module.scss";
+import * as styles from "./modalStyles.module.scss";
 
 const Modal = (props) => {
   return (
