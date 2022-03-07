@@ -1,13 +1,14 @@
 import * as styles from "./styles.module.scss";
+import cx from 'classnames';
 
-const Header = (props) => {
-  const { className } = props;
-  console.log('rk', className);
+const ModalHeader = (props) => {
+  const { headerCustomClass } = props;
+  console.log('rk', props); 
   return (
-    <div className={styles.modalHeader}>
+    <div className={cx(headerCustomClass, styles.modalHeader)}>
       {props.children}
     </div>
   );
 };
 
-export default Header;
+export default ModalHeader;
