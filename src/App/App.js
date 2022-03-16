@@ -1,20 +1,39 @@
+import { useState, useEffect } from "react";
 import * as styles from "./App.module.scss";
-import { Modal, ModalHeader, ModalBody, ModalFooter } from "../Trial";
-import ReactLogo from '../images/logo.svg'
-import Button from 'react-bootstrap/Button';
+import { IssueTracker, IssueTrackerHeader } from "./IssueTracker";
+import { getIssue } from "./IssueTracker/task.js";
 
 const App = () => {
-  const headerElement = (<div className={styles.ss}>Modal Title</div>);
-  const headerText = "Modal Title";
-  const headerImage = <img  className={styles.reactLogo} src={ReactLogo} alt="React Logo" />;
-  const bodyText = "Modal Body";
-  const footerText = "Modal Footer";
-  const closeModal = () => {
-    console.log('rk1 cm');
-  };
+
+  const [isLoading, setLoading] = useState(true);
+  const [issue, setIssue] = useState(null);
+
+  useEffect( async () => {  
+    const issue = await getIssue();
+    console.log('T issue!', issue);
+    setIssue(issue);
+    setLoading(false);
+  });
+
   return (
-    <div className={styles.App}>      
-        Hello World
+    <div className={styles.App}>
+    {
+      isLoading 
+        ? <div>LOADING</div> 
+        : 
+          (<IssueTracker issue={issue}  >
+
+            <IssueTrackerHeader issue={issue}>
+            </IssueTrackerHeader>
+
+            {/* <IssueTrackerBody>
+            </IssueTrackerBody>
+
+            <IssueTrackerFooter>
+            </IssueTrackerFooter> */}
+          
+          </IssueTracker>)
+    }
     </div>
   );
 };
